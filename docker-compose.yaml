@@ -1,0 +1,15 @@
+services:
+  pg:
+    image: postgres:latest
+    container_name: coreloops_tech_test
+    ports:
+      - "5445:5432"
+    environment:
+      POSTGRES_DB: coreloops_tech_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,1088 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  line-height: 1.5;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+}
+svg {
+  display: block;
+  vertical-align: middle;
+  shape-rendering: auto;
+  text-rendering: optimizeLegibility;
+}
+pre {
+  background-color: rgba(55, 65, 81, 1);
+  color: rgba(229, 231, 235, 1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  overflow: scroll;
+  padding: 0.5rem 0.75rem;
+}
+
+.shadow {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.wrapper {
+  width: 100%;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: rgba(55, 65, 81, 1);
+  width: 100%;
+}
+#hero {
+  align-items: center;
+  background-color: hsla(214, 62%, 21%, 1);
+  border: none;
+  box-sizing: border-box;
+  color: rgba(55, 65, 81, 1);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 3.5rem;
+}
+#hero .text-container {
+  color: rgba(255, 255, 255, 1);
+  padding: 3rem 2rem;
+}
+#hero .text-container h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  position: relative;
+}
+#hero .text-container h2 svg {
+  color: hsla(162, 47%, 50%, 1);
+  height: 2rem;
+  left: -0.25rem;
+  position: absolute;
+  top: 0;
+  width: 2rem;
+}
+#middle-content {
+  align-items: flex-start;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1fr;
+  margin-top: 3.5rem;
+}
+#learning-materials {
+  padding: 2.5rem 2rem;
+}
+#learning-materials h2 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  line-height: 1.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.list-item-link svg:first-child {
+  margin-right: 1rem;
+  height: 1.5rem;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  width: 1.5rem;
+}
+.list-item-link > span {
+  flex-grow: 1;
+  font-weight: 400;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.list-item-link > span > span {
+  color: rgba(107, 114, 128, 1);
+  display: block;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1rem;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.list-item-link svg:last-child {
+  height: 1rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  width: 1rem;
+}
+.list-item-link:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: hsla(162, 47%, 50%, 1);
+}
+.list-item-link:hover > span {
+}
+.list-item-link:hover > span > span {
+  color: rgba(243, 244, 246, 1);
+}
+.list-item-link:hover svg:last-child {
+  transform: translateX(0.25rem);
+}
+#other-links {
+}
+.button-pill {
+  padding: 1.5rem 2rem;
+  transition-duration: 300ms;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  display: flex;
+}
+.button-pill svg {
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  flex-shrink: 0;
+  width: 3rem;
+}
+.button-pill > span {
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.button-pill span span {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+}
+.button-pill:hover svg,
+.button-pill:hover {
+  color: rgba(255, 255, 255, 1) !important;
+}
+#nx-console:hover {
+  background-color: rgba(0, 122, 204, 1);
+}
+#nx-console svg {
+  color: rgba(0, 122, 204, 1);
+}
+#nx-console-jetbrains {
+  margin-top: 2rem;
+}
+#nx-console-jetbrains:hover {
+  background-color: rgba(255, 49, 140, 1);
+}
+#nx-console-jetbrains svg {
+  color: rgba(255, 49, 140, 1);
+}
+#nx-repo:hover {
+  background-color: rgba(24, 23, 23, 1);
+}
+#nx-repo svg {
+  color: rgba(24, 23, 23, 1);
+}
+#nx-cloud {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 2.5rem 2rem;
+}
+#nx-cloud > div {
+  align-items: center;
+  display: flex;
+}
+#nx-cloud > div h2 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#nx-cloud > div h2 span {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+}
+#nx-cloud p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+}
+#nx-cloud pre {
+  margin-top: 1rem;
+}
+#nx-cloud a {
+  color: rgba(107, 114, 128, 1);
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 1.5rem;
+  text-align: right;
+}
+#nx-cloud a:hover {
+  text-decoration: underline;
+}
+#commands {
+  padding: 2.5rem 2rem;
+  margin-top: 3.5rem;
+}
+#commands h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#commands p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+details {
+  align-items: center;
+  display: flex;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+details pre > span {
+  color: rgba(181, 181, 181, 1);
+  display: block;
+}
+summary {
+  display: flex;
+  font-weight: 400;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+summary:hover {
+  background-color: rgba(243, 244, 246, 1);
+}
+summary svg {
+  height: 1.5rem;
+  margin-right: 1rem;
+  width: 1.5rem;
+}
+#love {
+  color: rgba(107, 114, 128, 1);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 3.5rem;
+  opacity: 0.6;
+  text-align: center;
+}
+#love svg {
+  color: rgba(252, 165, 165, 1);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline;
+  margin-top: -0.25rem;
+}
+@media screen and (min-width: 768px) {
+  #hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #hero .logo-container {
+    display: flex;
+  }
+  #middle-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+:root {
+  --custom-colors-example-50: #ffffff;
+  --tailwind-colors-amber-100: #fef3c7;
+  --tailwind-colors-amber-200: #fde68a;
+  --tailwind-colors-amber-300: #fcd34d;
+  --tailwind-colors-amber-400: #fbbf24;
+  --tailwind-colors-amber-50: #fffbeb;
+  --tailwind-colors-amber-500: #f59e0b;
+  --tailwind-colors-amber-600: #d97706;
+  --tailwind-colors-amber-700: #b45309;
+  --tailwind-colors-amber-800: #92400e;
+  --tailwind-colors-amber-900: #78350f;
+  --tailwind-colors-amber-950: #451a03;
+  --tailwind-colors-base-black: #000000;
+  --tailwind-colors-base-transparent: #ffffff00;
+  --tailwind-colors-base-white: #ffffff;
+  --tailwind-colors-blue-100: #dbeafe;
+  --tailwind-colors-blue-200: #bfdbfe;
+  --tailwind-colors-blue-300: #93c5fd;
+  --tailwind-colors-blue-400: #60a5fa;
+  --tailwind-colors-blue-50: #eff6ff;
+  --tailwind-colors-blue-500: #3b82f6;
+  --tailwind-colors-blue-600: #2563eb;
+  --tailwind-colors-blue-700: #1d4ed8;
+  --tailwind-colors-blue-800: #1e40af;
+  --tailwind-colors-blue-900: #1e3a8a;
+  --tailwind-colors-blue-950: #172554;
+  --tailwind-colors-cyan-100: #cffafe;
+  --tailwind-colors-cyan-200: #a5f3fc;
+  --tailwind-colors-cyan-300: #67e8f9;
+  --tailwind-colors-cyan-400: #22d3ee;
+  --tailwind-colors-cyan-50: #ecfeff;
+  --tailwind-colors-cyan-500: #06b6d4;
+  --tailwind-colors-cyan-600: #0891b2;
+  --tailwind-colors-cyan-700: #0e7490;
+  --tailwind-colors-cyan-800: #155e75;
+  --tailwind-colors-cyan-900: #164e63;
+  --tailwind-colors-cyan-950: #083344;
+  --tailwind-colors-emerald-100: #d1fae5;
+  --tailwind-colors-emerald-200: #a7f3d0;
+  --tailwind-colors-emerald-300: #6ee7b7;
+  --tailwind-colors-emerald-400: #34d399;
+  --tailwind-colors-emerald-50: #ecfdf5;
+  --tailwind-colors-emerald-500: #10b981;
+  --tailwind-colors-emerald-600: #059669;
+  --tailwind-colors-emerald-700: #047857;
+  --tailwind-colors-emerald-800: #065f46;
+  --tailwind-colors-emerald-900: #064e3b;
+  --tailwind-colors-emerald-950: #022c22;
+  --tailwind-colors-fuchsia-100: #fae8ff;
+  --tailwind-colors-fuchsia-200: #f5d0fe;
+  --tailwind-colors-fuchsia-300: #f0abfc;
+  --tailwind-colors-fuchsia-400: #e879f9;
+  --tailwind-colors-fuchsia-50: #fdf4ff;
+  --tailwind-colors-fuchsia-500: #d946ef;
+  --tailwind-colors-fuchsia-600: #c026d3;
+  --tailwind-colors-fuchsia-700: #a21caf;
+  --tailwind-colors-fuchsia-800: #86198f;
+  --tailwind-colors-fuchsia-900: #701a75;
+  --tailwind-colors-fuchsia-950: #4a044e;
+  --tailwind-colors-gray-100: #f3f4f6;
+  --tailwind-colors-gray-200: #e5e7eb;
+  --tailwind-colors-gray-300: #d1d5db;
+  --tailwind-colors-gray-400: #9ca3af;
+  --tailwind-colors-gray-50: #f9fafb;
+  --tailwind-colors-gray-500: #6b7280;
+  --tailwind-colors-gray-600: #4b5563;
+  --tailwind-colors-gray-700: #374151;
+  --tailwind-colors-gray-800: #1f2937;
+  --tailwind-colors-gray-900: #111827;
+  --tailwind-colors-gray-950: #030712;
+  --tailwind-colors-green-100: #dcfce7;
+  --tailwind-colors-green-200: #bbf7d0;
+  --tailwind-colors-green-300: #86efac;
+  --tailwind-colors-green-400: #4ade80;
+  --tailwind-colors-green-50: #f0fdf4;
+  --tailwind-colors-green-500: #22c55e;
+  --tailwind-colors-green-600: #16a34a;
+  --tailwind-colors-green-700: #15803d;
+  --tailwind-colors-green-800: #166534;
+  --tailwind-colors-green-900: #14532d;
+  --tailwind-colors-green-950: #052e16;
+  --tailwind-colors-indigo-100: #e0e7ff;
+  --tailwind-colors-indigo-200: #c7d2fe;
+  --tailwind-colors-indigo-300: #a5b4fc;
+  --tailwind-colors-indigo-400: #818cf8;
+  --tailwind-colors-indigo-50: #eef2ff;
+  --tailwind-colors-indigo-500: #6366f1;
+  --tailwind-colors-indigo-600: #4f46e5;
+  --tailwind-colors-indigo-700: #4338ca;
+  --tailwind-colors-indigo-800: #3730a3;
+  --tailwind-colors-indigo-900: #312e81;
+  --tailwind-colors-indigo-950: #1e1b4b;
+  --tailwind-colors-lime-100: #ecfccb;
+  --tailwind-colors-lime-200: #d9f99d;
+  --tailwind-colors-lime-300: #bef264;
+  --tailwind-colors-lime-400: #a3e635;
+  --tailwind-colors-lime-50: #f7fee7;
+  --tailwind-colors-lime-500: #84cc16;
+  --tailwind-colors-lime-600: #65a30d;
+  --tailwind-colors-lime-700: #4d7c0f;
+  --tailwind-colors-lime-800: #3f6212;
+  --tailwind-colors-lime-900: #365314;
+  --tailwind-colors-lime-950: #1a2e05;
+  --tailwind-colors-neutral-100: #f5f5f5;
+  --tailwind-colors-neutral-200: #e5e5e5;
+  --tailwind-colors-neutral-300: #d4d4d4;
+  --tailwind-colors-neutral-400: #a3a3a3;
+  --tailwind-colors-neutral-50: #fafafa;
+  --tailwind-colors-neutral-500: #737373;
+  --tailwind-colors-neutral-600: #525252;
+  --tailwind-colors-neutral-700: #404040;
+  --tailwind-colors-neutral-800: #262626;
+  --tailwind-colors-neutral-900: #171717;
+  --tailwind-colors-neutral-950: #0a0a0a;
+  --tailwind-colors-orange-100: #ffedd5;
+  --tailwind-colors-orange-200: #fed7aa;
+  --tailwind-colors-orange-300: #fdba74;
+  --tailwind-colors-orange-400: #fb923c;
+  --tailwind-colors-orange-50: #fff7ed;
+  --tailwind-colors-orange-500: #f97316;
+  --tailwind-colors-orange-600: #ea580c;
+  --tailwind-colors-orange-700: #c2410c;
+  --tailwind-colors-orange-800: #9a3412;
+  --tailwind-colors-orange-900: #7c2d12;
+  --tailwind-colors-orange-950: #431407;
+  --tailwind-colors-pink-100: #fce7f3;
+  --tailwind-colors-pink-200: #fbcfe8;
+  --tailwind-colors-pink-300: #f9a8d4;
+  --tailwind-colors-pink-400: #f472b6;
+  --tailwind-colors-pink-50: #fdf2f8;
+  --tailwind-colors-pink-500: #ec4899;
+  --tailwind-colors-pink-600: #db2777;
+  --tailwind-colors-pink-700: #be185d;
+  --tailwind-colors-pink-800: #9d174d;
+  --tailwind-colors-pink-900: #831843;
+  --tailwind-colors-pink-950: #500724;
+  --tailwind-colors-purple-100: #f3e8ff;
+  --tailwind-colors-purple-200: #e9d5ff;
+  --tailwind-colors-purple-300: #d8b4fe;
+  --tailwind-colors-purple-400: #c084fc;
+  --tailwind-colors-purple-50: #faf5ff;
+  --tailwind-colors-purple-500: #a855f7;
+  --tailwind-colors-purple-600: #9333ea;
+  --tailwind-colors-purple-700: #7e22ce;
+  --tailwind-colors-purple-800: #6b21a8;
+  --tailwind-colors-purple-900: #581c87;
+  --tailwind-colors-purple-950: #3b0764;
+  --tailwind-colors-red-100: #fee2e2;
+  --tailwind-colors-red-200: #fecaca;
+  --tailwind-colors-red-300: #fca5a5;
+  --tailwind-colors-red-400: #f87171;
+  --tailwind-colors-red-50: #fef2f2;
+  --tailwind-colors-red-500: #ef4444;
+  --tailwind-colors-red-600: #dc2626;
+  --tailwind-colors-red-700: #b91c1c;
+  --tailwind-colors-red-800: #991b1b;
+  --tailwind-colors-red-900: #7f1d1d;
+  --tailwind-colors-red-950: #450a0a;
+  --tailwind-colors-rose-100: #ffe4e6;
+  --tailwind-colors-rose-200: #fecdd3;
+  --tailwind-colors-rose-300: #fda4af;
+  --tailwind-colors-rose-400: #fb7185;
+  --tailwind-colors-rose-50: #fff1f2;
+  --tailwind-colors-rose-500: #f43f5e;
+  --tailwind-colors-rose-600: #e11d48;
+  --tailwind-colors-rose-700: #be123c;
+  --tailwind-colors-rose-800: #9f1239;
+  --tailwind-colors-rose-900: #881337;
+  --tailwind-colors-rose-950: #4c0519;
+  --tailwind-colors-sky-100: #e0f2fe;
+  --tailwind-colors-sky-200: #bae6fd;
+  --tailwind-colors-sky-300: #7dd3fc;
+  --tailwind-colors-sky-400: #38bdf8;
+  --tailwind-colors-sky-50: #f0f9ff;
+  --tailwind-colors-sky-500: #0ea5e9;
+  --tailwind-colors-sky-600: #0284c7;
+  --tailwind-colors-sky-700: #0369a1;
+  --tailwind-colors-sky-800: #075985;
+  --tailwind-colors-sky-900: #0c4a6e;
+  --tailwind-colors-sky-950: #082f49;
+  --tailwind-colors-slate-100: #f1f5f9;
+  --tailwind-colors-slate-200: #e2e8f0;
+  --tailwind-colors-slate-300: #cbd5e1;
+  --tailwind-colors-slate-400: #94a3b8;
+  --tailwind-colors-slate-50: #f8fafc;
+  --tailwind-colors-slate-500: #64748b;
+  --tailwind-colors-slate-600: #475569;
+  --tailwind-colors-slate-700: #334155;
+  --tailwind-colors-slate-800: #1e293b;
+  --tailwind-colors-slate-900: #0f172a;
+  --tailwind-colors-slate-950: #020617;
+  --tailwind-colors-stone-100: #f5f5f4;
+  --tailwind-colors-stone-200: #e7e5e4;
+  --tailwind-colors-stone-300: #d6d3d1;
+  --tailwind-colors-stone-400: #a8a29e;
+  --tailwind-colors-stone-50: #fafaf9;
+  --tailwind-colors-stone-500: #78716c;
+  --tailwind-colors-stone-600: #57534e;
+  --tailwind-colors-stone-700: #44403c;
+  --tailwind-colors-stone-800: #292524;
+  --tailwind-colors-stone-900: #1c1917;
+  --tailwind-colors-stone-950: #0c0a09;
+  --tailwind-colors-teal-100: #ccfbf1;
+  --tailwind-colors-teal-200: #99f6e4;
+  --tailwind-colors-teal-300: #5eead4;
+  --tailwind-colors-teal-400: #2dd4bf;
+  --tailwind-colors-teal-50: #f0fdfa;
+  --tailwind-colors-teal-500: #14b8a6;
+  --tailwind-colors-teal-600: #0d9488;
+  --tailwind-colors-teal-700: #0f766e;
+  --tailwind-colors-teal-800: #115e59;
+  --tailwind-colors-teal-900: #134e4a;
+  --tailwind-colors-teal-950: #042f2e;
+  --tailwind-colors-violet-100: #ede9fe;
+  --tailwind-colors-violet-200: #ddd6fe;
+  --tailwind-colors-violet-300: #c4b5fd;
+  --tailwind-colors-violet-400: #a78bfa;
+  --tailwind-colors-violet-50: #f5f3ff;
+  --tailwind-colors-violet-500: #8b5cf6;
+  --tailwind-colors-violet-600: #7c3aed;
+  --tailwind-colors-violet-700: #6d28d9;
+  --tailwind-colors-violet-800: #5b21b6;
+  --tailwind-colors-violet-900: #4c1d95;
+  --tailwind-colors-violet-950: #2e1065;
+  --tailwind-colors-yellow-100: #fef9c3;
+  --tailwind-colors-yellow-200: #fef08a;
+  --tailwind-colors-yellow-300: #fde047;
+  --tailwind-colors-yellow-400: #facc15;
+  --tailwind-colors-yellow-50: #fefce8;
+  --tailwind-colors-yellow-500: #eab308;
+  --tailwind-colors-yellow-600: #ca8a04;
+  --tailwind-colors-yellow-700: #a16207;
+  --tailwind-colors-yellow-800: #854d0e;
+  --tailwind-colors-yellow-900: #713f12;
+  --tailwind-colors-yellow-950: #422006;
+  --tailwind-colors-zinc-100: #f4f4f5;
+  --tailwind-colors-zinc-200: #e4e4e7;
+  --tailwind-colors-zinc-300: #d4d4d8;
+  --tailwind-colors-zinc-400: #a1a1aa;
+  --tailwind-colors-zinc-50: #fafafa;
+  --tailwind-colors-zinc-500: #71717a;
+  --tailwind-colors-zinc-600: #52525b;
+  --tailwind-colors-zinc-700: #3f3f46;
+  --tailwind-colors-zinc-800: #27272a;
+  --tailwind-colors-zinc-900: #18181b;
+  --tailwind-colors-zinc-950: #09090b;
+  --colors-accent-dark: var(--tailwind-colors-zinc-800);
+  --colors-accent-foreground-dark: var(--tailwind-colors-zinc-50);
+  --colors-accent-foreground-light: var(--tailwind-colors-zinc-900);
+  --colors-accent-light: var(--tailwind-colors-zinc-100);
+  --colors-background-dark: var(--tailwind-colors-zinc-950);
+  --colors-background-light: var(--tailwind-colors-base-white);
+  --colors-border-dark: var(--tailwind-colors-zinc-800);
+  --colors-border-light: var(--tailwind-colors-zinc-200);
+  --colors-card-dark: var(--tailwind-colors-zinc-950);
+  --colors-card-foreground-dark: var(--tailwind-colors-zinc-50);
+  --colors-card-foreground-light: var(--tailwind-colors-zinc-950);
+  --colors-card-light: var(--tailwind-colors-base-white);
+  --colors-chart-1-dark: #2662d9;
+  --colors-chart-1-light: #2a9d90;
+  --colors-chart-2-dark: #e23670;
+  --colors-chart-2-light: #e76e50;
+  --colors-chart-3-dark: #e88c30;
+  --colors-chart-3-light: #274754;
+  --colors-chart-4-dark: #af57db;
+  --colors-chart-4-light: #e8c468;
+  --colors-chart-5-dark: #2eb88a;
+  --colors-chart-5-light: #f4a462;
+  --colors-destructive-dark: var(--tailwind-colors-red-900);
+  --colors-destructive-foreground-dark: var(--tailwind-colors-red-50);
+  --colors-destructive-foreground-light: var(--tailwind-colors-red-50);
+  --colors-destructive-light: var(--tailwind-colors-red-600);
+  --colors-foreground-dark: var(--tailwind-colors-zinc-50);
+  --colors-foreground-light: var(--tailwind-colors-zinc-900);
+  --colors-input-dark: var(--tailwind-colors-zinc-800);
+  --colors-input-light: var(--tailwind-colors-zinc-200);
+  --colors-muted-dark: var(--tailwind-colors-zinc-800);
+  --colors-muted-foreground-dark: var(--tailwind-colors-zinc-400);
+  --colors-muted-foreground-light: var(--tailwind-colors-zinc-500);
+  --colors-muted-light: var(--tailwind-colors-zinc-100);
+  --colors-popover-dark: var(--tailwind-colors-zinc-950);
+  --colors-popover-foreground-dark: var(--tailwind-colors-zinc-50);
+  --colors-popover-foreground-light: var(--tailwind-colors-zinc-950);
+  --colors-popover-light: var(--tailwind-colors-base-white);
+  --colors-primary-dark: var(--tailwind-colors-zinc-50);
+  --colors-primary-foreground-dark: var(--tailwind-colors-zinc-900);
+  --colors-primary-foreground-light: var(--tailwind-colors-zinc-50);
+  --colors-primary-light: var(--tailwind-colors-zinc-900);
+  --colors-ring-dark: var(--tailwind-colors-zinc-300);
+  --colors-ring-light: var(--tailwind-colors-zinc-900);
+  --colors-secondary-dark: var(--tailwind-colors-zinc-800);
+  --colors-secondary-foreground-dark: var(--tailwind-colors-zinc-50);
+  --colors-secondary-foreground-light: var(--tailwind-colors-zinc-900);
+  --colors-secondary-light: var(--tailwind-colors-zinc-100);
+  --colors-sidebar-accent-dark: var(--tailwind-colors-zinc-800);
+  --colors-sidebar-accent-foreground-dark: var(--tailwind-colors-zinc-100);
+  --colors-sidebar-accent-foreground-light: var(--tailwind-colors-zinc-900);
+  --colors-sidebar-accent-light: var(--tailwind-colors-zinc-100);
+  --colors-sidebar-background-dark: var(--tailwind-colors-zinc-900);
+  --colors-sidebar-background-light: var(--tailwind-colors-zinc-50);
+  --colors-sidebar-border-dark: var(--tailwind-colors-zinc-800);
+  --colors-sidebar-border-light: var(--tailwind-colors-gray-200);
+  --colors-sidebar-foreground-dark: var(--tailwind-colors-zinc-100);
+  --colors-sidebar-foreground-light: var(--tailwind-colors-zinc-700);
+  --colors-sidebar-primary-dark: var(--tailwind-colors-blue-700);
+  --colors-sidebar-primary-foreground-dark: var(--tailwind-colors-base-white);
+  --colors-sidebar-primary-foreground-light: var(--tailwind-colors-zinc-50);
+  --colors-sidebar-primary-light: var(--tailwind-colors-zinc-900);
+  --colors-sidebar-ring-dark: var(--tailwind-colors-zinc-300);
+  --colors-sidebar-ring-light: var(--tailwind-colors-zinc-400);
+  --alpha-10: #ffffffe5;
+  --alpha-20: #ffffffcc;
+  --alpha-30: #ffffffb2;
+  --alpha-40: #ffffff99;
+  --alpha-50: #ffffff80;
+  --alpha-60: #ffffff66;
+  --alpha-70: #ffffff4d;
+  --alpha-80: #ffffff33;
+  --alpha-90: #ffffff1a;
+  --base-accent: var(--colors-accent-light);
+  --base-accent-foreground: var(--tailwind-colors-blue-500);
+  --base-background: var(--colors-background-light);
+  --base-border: var(--colors-border-light);
+  --base-card: var(--colors-card-light);
+  --base-card-foreground: var(--colors-card-foreground-light);
+  --base-chart-1: var(--colors-chart-1-light);
+  --base-chart-2: var(--colors-chart-2-light);
+  --base-chart-3: var(--colors-chart-3-light);
+  --base-chart-4: var(--colors-chart-4-light);
+  --base-chart-5: var(--colors-chart-5-light);
+  --base-destructive: var(--colors-destructive-light);
+  --base-destructive-foreground: var(--colors-destructive-foreground-light);
+  --base-foreground: var(--colors-foreground-light);
+  --base-input: var(--colors-input-light);
+  --base-muted: var(--colors-muted-light);
+  --base-muted-foreground: var(--colors-muted-foreground-light);
+  --base-popover: var(--colors-popover-light);
+  --base-popover-foreground: var(--colors-popover-foreground-light);
+  --base-primary: var(--tailwind-colors-blue-600);
+  --base-primary-foreground: var(--colors-primary-foreground-light);
+  --base-ring: var(--tailwind-colors-blue-600);
+  --base-ring-offset: var(--tailwind-colors-base-white);
+  --base-secondary: var(--colors-secondary-light);
+  --base-secondary-foreground: var(--colors-secondary-foreground-light);
+  --base-sidebar-accent: var(--colors-sidebar-accent-light);
+  --base-sidebar-accent-foreground: var(--colors-sidebar-accent-foreground-light);
+  --base-sidebar-background: var(--colors-sidebar-background-light);
+  --base-sidebar-border: var(--colors-sidebar-border-light);
+  --base-sidebar-foreground: var(--colors-sidebar-foreground-light);
+  --base-sidebar-primary: var(--colors-sidebar-primary-light);
+  --base-sidebar-primary-foreground: var(--colors-sidebar-primary-foreground-light);
+  --base-sidebar-ring: var(--colors-sidebar-ring-light);
+  --sidebar: oklch(0.985 0 0);
+
+  /* number */
+  --blur-blur-none: 0rem;
+  --blur-blur-sm: 0.25rem;
+  --blur-blur: 0.5rem;
+  --blur-blur-md: 0.75rem;
+  --blur-blur-lg: 1rem;
+  --blur-blur-xl: 1.5rem;
+  --blur-blur-2xl: 2.5rem;
+  --blur-blur-3xl: 4rem;
+  --border-width-border-0: 0rem;
+  --border-width-border-1: 0.0625rem;
+  --border-width-border-2: 0.125rem;
+  --border-width-border-4: 0.25rem;
+  --border-width-border-8: 0.5rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+  --font-letter-spacing-tighter: -0.05rem;
+  --font-letter-spacing-tight: -0.025rem;
+  --font-letter-spacing-normal: 0rem;
+  --font-letter-spacing-wide: 0.025rem;
+  --font-letter-spacing-wider: 0.05rem;
+  --font-letter-spacing-widest: 0.1rem;
+  --font-line-height-leading-3: 0.75rem;
+  --font-line-height-leading-4: 1rem;
+  --font-line-height-leading-5: 1.25rem;
+  --font-line-height-leading-6: 1.5rem;
+  --font-line-height-leading-7: 1.75rem;
+  --font-line-height-leading-8: 2rem;
+  --font-line-height-leading-9: 2.25rem;
+  --font-line-height-leading-10: 2.5rem;
+  --font-size-text-xs: 0.75rem;
+  --font-size-text-sm: 0.875rem;
+  --font-size-text-base: 1rem;
+  --font-size-text-lg: 1.125rem;
+  --font-size-text-xl: 1.25rem;
+  --font-size-text-2xl: 1.5rem;
+  --font-size-text-3xl: 1.875rem;
+  --font-size-text-4xl: 2.25rem;
+  --font-size-text-5xl: 3rem;
+  --font-size-text-6xl: 3.75rem;
+  --font-size-text-7xl: 4.5rem;
+  --font-size-text-8xl: 6rem;
+  --font-size-text-9xl: 8rem;
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --height-h-0: 0rem;
+  --height-h-px: 0.0625rem;
+  --height-h-05: 0.125rem;
+  --height-h-1: 0.25rem;
+  --height-h-15: 0.375rem;
+  --height-h-2: 0.5rem;
+  --height-h-25: 0.625rem;
+  --height-h-3: 0.75rem;
+  --height-h-35: 0.875rem;
+  --height-h-4: 1rem;
+  --height-h-5: 1.25rem;
+  --height-h-6: 1.5rem;
+  --height-h-7: 1.75rem;
+  --height-h-8: 2rem;
+  --height-h-9: 2.25rem;
+  --height-h-10: 2.5rem;
+  --height-h-11: 2.75rem;
+  --height-h-12: 3rem;
+  --height-h-14: 3.5rem;
+  --height-h-16: 4rem;
+  --height-h-20: 5rem;
+  --height-h-24: 6rem;
+  --height-h-28: 7rem;
+  --height-h-32: 8rem;
+  --height-h-36: 9rem;
+  --height-h-44: 11rem;
+  --height-h-48: 12rem;
+  --height-h-52: 13rem;
+  --height-h-56: 14rem;
+  --height-h-64: 16rem;
+  --height-h-72: 18rem;
+  --height-h-80: 20rem;
+  --height-h-96: 24rem;
+  --max-width-max-w-0: 0rem;
+  --max-width-max-w-3xs: 16rem;
+  --max-width-max-w-2xs: 18rem;
+  --max-width-max-w-xs: 20rem;
+  --max-width-max-w-sm: 24rem;
+  --max-width-max-w-md: 28rem;
+  --max-width-max-w-lg: 32rem;
+  --max-width-max-w-xl: 36rem;
+  --max-width-max-w-2xl: 42rem;
+  --max-width-max-w-3xl: 48rem;
+  --max-width-max-w-4xl: 56rem;
+  --max-width-max-w-5xl: 64rem;
+  --max-width-max-w-6xl: 72rem;
+  --max-width-max-w-7xl: 80rem;
+  --opacity-opacity-0: 0rem;
+  --opacity-opacity-5: 0.3125rem;
+  --opacity-opacity-10: 0.625rem;
+  --opacity-opacity-15: 0.9375rem;
+  --opacity-opacity-20: 1.25rem;
+  --opacity-opacity-25: 1.5625rem;
+  --opacity-opacity-30: 1.875rem;
+  --opacity-opacity-35: 2.1875rem;
+  --opacity-opacity-40: 2.5rem;
+  --opacity-opacity-45: 2.8125rem;
+  --opacity-opacity-50: 3.125rem;
+  --opacity-opacity-55: 3.4375rem;
+  --opacity-opacity-60: 3.75rem;
+  --opacity-opacity-65: 4.0625rem;
+  --opacity-opacity-70: 4.375rem;
+  --opacity-opacity-75: 4.6875rem;
+  --opacity-opacity-80: 5rem;
+  --opacity-opacity-85: 5.3125rem;
+  --opacity-opacity-90: 5.625rem;
+  --opacity-opacity-95: 5.9375rem;
+  --opacity-opacity-100: 6.25rem;
+  --radius-rounded-none: 0rem;
+  --radius-rounded-sm: 0.125rem;
+  --radius-rounded: 0.25rem;
+  --radius-rounded-md: 0.375rem;
+  --radius-rounded-lg: 0.5rem;
+  --radius-rounded-xl: 0.75rem;
+  --radius-rounded-2xl: 1rem;
+  --radius-rounded-3xl: 1.5rem;
+  --radius-rounded-4xl: 2rem;
+  --radius-rounded-full: 624.9375rem;
+  --spacing-0: 0rem;
+  --spacing-px: 0.0625rem;
+  --spacing-0-5: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-1-5: 0.375rem;
+  --spacing-2: 0.5rem;
+  --spacing-2-5: 0.625rem;
+  --spacing-3: 0.75rem;
+  --spacing-3-5: 0.875rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+  --spacing-14: 3.5rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  --spacing-36: 9rem;
+  --spacing-40: 10rem;
+  --spacing-44: 11rem;
+  --spacing-48: 12rem;
+  --spacing-52: 13rem;
+  --spacing-56: 14rem;
+  --spacing-60: 15rem;
+  --spacing-64: 16rem;
+  --spacing-72: 18rem;
+  --spacing-80: 20rem;
+  --spacing-96: 24rem;
+  --width-w-0: 0rem;
+  --width-w-px: 0.0625rem;
+  --width-w-05: 0.125rem;
+  --width-w-1: 0.25rem;
+  --width-w-15: 0.375rem;
+  --width-w-2: 0.5rem;
+  --width-w-25: 0.625rem;
+  --width-w-3: 0.75rem;
+  --width-w-35: 0.875rem;
+  --width-w-4: 1rem;
+  --width-w-5: 1.25rem;
+  --width-w-6: 1.5rem;
+  --width-w-7: 1.75rem;
+  --width-w-8: 2rem;
+  --width-w-9: 2.25rem;
+  --width-w-10: 1000px;
+  --width-w-11: 2.75rem;
+  --width-w-12: 3rem;
+  --width-w-14: 3.5rem;
+  --width-w-16: 4rem;
+  --width-w-20: 5rem;
+  --width-w-24: 6rem;
+  --width-w-28: 7rem;
+  --width-w-32: 8rem;
+  --width-w-36: 9rem;
+  --width-w-44: 11rem;
+  --width-w-48: 12rem;
+  --width-w-52: 13rem;
+  --width-w-56: 14rem;
+  --width-w-64: 16rem;
+  --width-w-72: 18rem;
+  --width-w-80: 20rem;
+  --width-w-96: 24rem;
+  /* string */
+  --font-style-italic: italic;
+  --font-style-not-italic: normal;
+
+  --border-radius-sm: var(--radius-rounded-sm);
+  --border-radius-default: var(--radius-rounded-md);
+  --border-radius-md: var(--radius-rounded-md);
+  --border-radius-lg: var(--radius-rounded-lg);
+  --border-radius-xl: var(--radius-rounded-xl);
+  --border-radius-full: var(--radius-rounded-full);
+  --typography-base-sizes-2x-large-font-size: var(--font-size-text-2xl);
+  --typography-base-sizes-2x-large-line-height: var(--font-line-height-leading-8);
+  --typography-base-sizes-3x-large-font-size: var(--font-size-text-3xl);
+  --typography-base-sizes-3x-large-line-height: var(--font-line-height-leading-9);
+  --typography-base-sizes-4x-large-font-size: var(--font-size-text-4xl);
+  --typography-base-sizes-4x-large-line-height: var(--font-line-height-leading-10);
+  --typography-base-sizes-base-font-size: var(--font-size-text-base);
+  --typography-base-sizes-base-line-height: var(--font-line-height-leading-6);
+  --typography-base-sizes-extra-small-font-size: var(--font-size-text-xs);
+  --typography-base-sizes-extra-small-line-height: var(--font-line-height-leading-4);
+  --typography-base-sizes-large-font-size: var(--font-size-text-lg);
+  --typography-base-sizes-large-line-height: var(--font-line-height-leading-7);
+  --typography-base-sizes-small-font-size: var(--font-size-text-sm);
+  --typography-base-sizes-small-line-height: var(--font-line-height-leading-5);
+  --typography-base-sizes-xlarge-font-size: var(--font-size-text-xl);
+  --typography-base-sizes-xlarge-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-blockquote-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-blockquote-font-size: var(--font-size-text-base);
+  --typography-typography-components-blockquote-line-height: var(--font-line-height-leading-6);
+  --typography-typography-components-blockquote-font-weight: var(--font-weight-normal);
+  --typography-typography-components-h1-letter-spacing: var(--font-letter-spacing-tight);
+  --typography-typography-components-h1-font-size: var(--font-size-text-4xl);
+  --typography-typography-components-h1-line-height: var(--font-line-height-leading-10);
+  --typography-typography-components-h1-font-size-lg: var(--font-size-text-5xl);
+  --typography-typography-components-h1-font-weight: var(--font-weight-extrabold);
+  --typography-typography-components-h2-letter-spacing: var(--font-letter-spacing-tight);
+  --typography-typography-components-h2-font-size: var(--font-size-text-3xl);
+  --typography-typography-components-h2-line-height: var(--font-line-height-leading-9);
+  --typography-typography-components-h2-font-weight: var(--font-weight-semibold);
+  --typography-typography-components-h3-letter-spacing: var(--font-letter-spacing-tight);
+  --typography-typography-components-h3-font-size: var(--font-size-text-2xl);
+  --typography-typography-components-h3-line-height: var(--font-line-height-leading-8);
+  --typography-typography-components-h3-font-weight: var(--font-weight-semibold);
+  --typography-typography-components-h4-letter-spacing: var(--font-letter-spacing-tight);
+  --typography-typography-components-h4-font-size: var(--font-size-text-xl);
+  --typography-typography-components-h4-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-h4-font-weight: var(--font-weight-semibold);
+  --typography-typography-components-inline-code-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-inline-code-font-size: var(--font-size-text-sm);
+  --typography-typography-components-inline-code-line-height: var(--font-line-height-leading-5);
+  --typography-typography-components-inline-code-font-weight: var(--font-weight-semibold);
+  --typography-typography-components-large-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-large-font-size: var(--font-size-text-lg);
+  --typography-typography-components-large-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-large-font-weight: var(--font-weight-semibold);
+  --typography-typography-components-lead-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-lead-font-size: var(--font-size-text-xl);
+  --typography-typography-components-lead-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-lead-font-weight: var(--font-weight-normal);
+  --typography-typography-components-list-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-list-font-size: var(--font-size-text-base);
+  --typography-typography-components-list-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-list-font-weight: var(--font-weight-normal);
+  --typography-typography-components-p-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-p-font-size: var(--font-size-text-base);
+  --typography-typography-components-p-line-height: var(--font-line-height-leading-7);
+  --typography-typography-components-p-font-weight: var(--font-weight-normal);
+  --typography-typography-components-small-font-size: var(--font-size-text-sm);
+  --typography-typography-components-small-line-height: var(--font-size-text-sm);
+  --typography-typography-components-small-letter-spacing: var(--font-line-height-leading-4);
+  --typography-typography-components-small-font-weight: var(--font-weight-medium);
+  --typography-typography-components-table-letter-spacing: var(--font-letter-spacing-normal);
+  --typography-typography-components-table-font-size: var(--font-size-text-base);
+  --typography-typography-components-table-font-weight: var(--font-weight-normal);
+  --typography-typography-components-table-font-weight-bold: var(--font-weight-bold);
+  /* string */
+  --typography-font-family-font-mono: Menlo;
+  --typography-font-family-font-sans: Inter;
+  --typography-font-family-font-serif: Georgia;
+  --typography-typography-components-blockquote-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-blockquote-font-style: var(--font-style-italic);
+  --typography-typography-components-h1-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-h2-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-h3-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-h4-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-inline-code-font-family: var(--typography-font-family-font-mono);
+  --typography-typography-components-large-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-lead-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-list-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-p-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-small-font-family: var(--typography-font-family-font-sans);
+  --typography-typography-components-table-font-family: var(--typography-font-family-font-sans);
+}
+
+.dark {
+  /* Dark */
+  /* color */
+  --alpha-10: #09090be5;
+  --alpha-20: #09090bcc;
+  --alpha-30: #09090bb2;
+  --alpha-40: #09090b99;
+  --alpha-50: #09090b80;
+  --alpha-60: #09090b66;
+  --alpha-70: #09090b4d;
+  --alpha-80: #09090b33;
+  --alpha-90: #09090b1a;
+  --base-accent: var(--colors-accent-dark);
+  --base-accent-foreground: var(--colors-accent-foreground-dark);
+  --base-background: var(--colors-background-dark);
+  --base-border: var(--colors-border-dark);
+  --base-card: var(--colors-card-dark);
+  --base-card-foreground: var(--colors-card-foreground-dark);
+  --base-chart-1: var(--colors-chart-1-dark);
+  --base-chart-2: var(--colors-chart-2-dark);
+  --base-chart-3: var(--colors-chart-3-dark);
+  --base-chart-4: var(--colors-chart-4-dark);
+  --base-chart-5: var(--colors-chart-5-dark);
+  --base-destructive: var(--colors-destructive-dark);
+  --base-destructive-foreground: var(--colors-destructive-foreground-dark);
+  --base-foreground: var(--colors-foreground-dark);
+  --base-input: var(--colors-input-dark);
+  --base-muted: var(--colors-muted-dark);
+  --base-muted-foreground: var(--colors-muted-foreground-dark);
+  --base-popover: var(--colors-popover-dark);
+  --base-popover-foreground: var(--colors-popover-foreground-dark);
+  --base-primary: var(--colors-primary-dark);
+  --base-primary-foreground: var(--colors-primary-foreground-dark);
+  --base-ring: var(--colors-ring-dark);
+  --base-ring-offset: var(--tailwind-colors-base-white);
+  --base-secondary: var(--colors-secondary-dark);
+  --base-secondary-foreground: var(--colors-secondary-foreground-dark);
+  --base-sidebar-accent: var(--colors-sidebar-accent-dark);
+  --base-sidebar-accent-foreground: var(--colors-sidebar-accent-foreground-dark);
+  --base-sidebar-background: var(--colors-sidebar-background-dark);
+  --base-sidebar-border: var(--colors-sidebar-border-dark);
+  --base-sidebar-foreground: var(--colors-sidebar-foreground-dark);
+  --base-sidebar-primary: var(--colors-sidebar-primary-dark);
+  --base-sidebar-primary-foreground: var(--colors-sidebar-primary-foreground-dark);
+  --base-sidebar-ring: var(--colors-sidebar-ring-dark);
+}
+@theme inline {
+  --color-background: var(--base-background);
+  --color-foreground: var(--base-foreground);
+  --color-card: var(--base-card);
+  --color-card-foreground: var(--base-card-foreground);
+  --color-popover: var(--base-popover);
+  --color-popover-foreground: var(--base-popover-foreground);
+  --color-primary: var(--base-primary);
+  --color-primary-foreground: var(--base-primary-foreground);
+  --color-secondary: var(--base-secondary);
+  --color-secondary-foreground: var(--base-secondary-foreground);
+  --color-muted: var(--base-muted);
+  --color-muted-foreground: var(--base-muted-foreground);
+  --color-accent: var(--base-accent);
+  --color-accent-foreground: var(--base-accent-foreground);
+  --color-destructive: var(--base-destructive);
+  --color-destructive-foreground: var(--base-destructive-foreground);
+  --color-border: var(--base-border);
+  --color-input: var(--base-input);
+  --color-ring: var(--base-ring);
+  --color-chart-1: var(--base-chart-1);
+  --color-chart-2: var(--base-chart-2);
+  --color-chart-3: var(--base-chart-3);
+  --color-chart-4: var(--base-chart-4);
+  --color-chart-5: var(--base-chart-5);
+  --radius-sm: var(--radius-rounded-sm);
+  --radius-md: var(--radius-rounded-md);
+  --radius-lg: var(--radius-rounded-lg);
+  --radius-xl: var(--radius-rounded-xl);
+  --radius-full: var(--radius-rounded-full);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--base-sidebar-foreground);
+  --color-sidebar-primary: var(--base-sidebar-primary);
+  --color-sidebar-primary-foreground: var(--base-sidebar-primary-foreground);
+  --color-sidebar-accent: var(--base-sidebar-accent);
+  --color-sidebar-accent-foreground: var(--base-sidebar-accent-foreground);
+  --color-sidebar-border: var(--base-sidebar-border);
+  --color-sidebar-ring: var(--base-sidebar-ring);
+  --font-inter: var(--typography-font-family-font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

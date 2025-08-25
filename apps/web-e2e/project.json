@@ -1,0 +1,21 @@
+{
+  "name": "web-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["web"],
+  "// targets": "to see all targets run: nx show project web-e2e --web",
+  "targets": {
+    "e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "playwright test",
+        "cwd": "apps/web-e2e",
+        "env": {
+          "NEXT_CONFIG_ENV": "e2e"
+        }
+      }
+    }
+  }
+}

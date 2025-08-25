@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": ["./**/*.ts", "./src/app/templates/*.json"],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@coreloops-api/*": ["src/app/api/*"],
+      "@coreloops-orm/*": ["src/app/orm/*"],
+    }
+  }
+}
