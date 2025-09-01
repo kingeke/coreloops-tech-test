@@ -8,6 +8,41 @@
       "when": 1756195880005,
       "tag": "0000_sparkling_mystique",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1756663807460,
+      "tag": "0001_soft_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756663868839,
+      "tag": "0002_giant_korath",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1756665439557,
+      "tag": "0003_sudden_firestar",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1756684297041,
+      "tag": "0004_military_rage",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1756687949040,
+      "tag": "0005_famous_black_cat",
+      "breakpoints": true
     }
   ]
 }

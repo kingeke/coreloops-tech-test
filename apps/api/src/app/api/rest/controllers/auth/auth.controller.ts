@@ -54,7 +54,7 @@ export class AuthController {
       secret: JWT_SECRET,
     });
 
-    return { accessToken };
+    return { accessToken, user: { isAdmin: user.isAdmin } };
   }
 
   @Post('sign-up')
@@ -81,6 +81,6 @@ export class AuthController {
       secret: JWT_SECRET,
     });
 
-    return { accessToken };
+    return { accessToken, user: { isAdmin: created.isAdmin } };
   }
 }

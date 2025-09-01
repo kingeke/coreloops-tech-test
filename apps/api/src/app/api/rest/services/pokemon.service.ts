@@ -27,4 +27,16 @@ export class PokemonService {
       },
     };
   }
+
+  async findPokemonMoves(id: string): Promise<ViewPokemonDto | undefined> {
+    const pokemon = await this.pokemonRepo.findPokemonMoves(id);
+
+    if (pokemon) {
+      return new ViewPokemonDto(pokemon);
+    }
+  }
+
+  async deletePokemon(id: string): Promise<{ status: string; message: string }> {
+    return this.pokemonRepo.deletePokemon(id);
+  }
 }

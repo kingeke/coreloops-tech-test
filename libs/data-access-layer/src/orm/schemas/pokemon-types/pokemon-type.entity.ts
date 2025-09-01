@@ -6,10 +6,10 @@ export const pokemonTypeEntity = pgTable(
   {
     pokemonId: uuid('pokemon_id')
       .notNull()
-      .references(() => pokemonEntity.id),
+      .references(() => pokemonEntity.id, { onDelete: 'cascade' }),
     typeId: uuid('type_id')
       .notNull()
-      .references(() => typeEntity.id),
+      .references(() => typeEntity.id, { onDelete: 'cascade' }),
   },
   table => [primaryKey({ columns: [table.typeId, table.pokemonId] })],
 );

@@ -2,11 +2,15 @@
 import { entitySchema } from '@coreloops-orm/schema';
 import {
   abilityEntity,
+  moveEntity,
   pokemonAbilityEntity,
   pokemonEntity,
+  pokemonMoveEntity,
   pokemonTypeEntity,
   typeEntity,
 } from '@coreloops-orm/schemas';
+import { seedMoves } from '@coreloops-orm/seed/seed-moves';
+import { seedPokemonMoves } from '@coreloops-orm/seed/seed-pokemon-moves';
 import dotenv from 'dotenv';
 import { drizzle, NodePgTransaction } from 'drizzle-orm/node-postgres';
 import path from 'node:path';
@@ -92,6 +96,26 @@ async function main() {
       pokemonId: pa.pokemonId,
       abilityId: pa.abilityId,
       hidden: pa.hidden,
+    }));
+
+    // 6) Moves
+    console.log(`→ moves (${seedMoves.length})`);
+    await insertBatched(tx, moveEntity, seedMoves, p => ({
+      id: p.id,
+      name: p.name,
+      accuracy: p.accuracy,
+      damageClass: p.damageClass,
+      power: p.power,
+      pp: p.pp,
+      typeId: p.typeId,
+      level: Math.floor(Math.random() * 101)
+    }));
+
+    // 7) Pokemon moves
+    console.log(`→ pokemon_moves (${seedPokemonMoves.length})`);
+    await insertBatched(tx, pokemonMoveEntity, seedPokemonMoves, p => ({
+      pokemonId: p.pokemonId,
+      moveId: p.moveId,
     }));
   });
 

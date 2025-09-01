@@ -1,17 +1,14 @@
 'use client';
 
 import { useApiInfiniteQuery } from '@/src/api/hooks/use-api-query';
+import PokemonCard from '@/src/components/pages/home/pokemon-card';
+import PokemonSkeleton from '@/src/components/pages/home/pokemon-skeleton';
+import { ViewPokemonModal } from '@/src/components/pages/home/view-pokemon-modal';
 import { Button } from '@/src/components/ui/button';
-import { Skeleton } from '@/src/components/ui/skeleton';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@coreloops-ui/card';
 import { ViewPokemonDto } from '@coreloops/shared-types';
-import { Loader2, Trash } from 'lucide-react';
-import Image from 'next/image';
+import { Loader2 } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-
-function formatDexNo(n: number) {
-  return `#${String(n).padStart(3, '0')}`;
-}
 
 function useGridColumns() {
   const [cols, setCols] = useState(1);
@@ -44,8 +41,13 @@ function useGridColumns() {
 }
 
 export default function Home() {
-  const { items, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage } =
+  const { items, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } =
     useApiInfiniteQuery<ViewPokemonDto>(['pokemon'], '/pokemon', { limit: 25 });
+
+  const [openViewPokemonModal, setOpenViewPokemonModal] = useState({
+    pokemon: null as ViewPokemonDto | null,
+    open: false,
+  });
 
   // Sentinel element we observe to trigger fetching more
   const sentinelRef = useRef<HTMLDivElement | null>(null);
@@ -76,6 +78,20 @@ export default function Home() {
       observer.unobserve(el);
     };
   }, [canAutoFetch, fetchNextPage]);
+
+  const handleCloseViewPokemonModal = () => {
+    setOpenViewPokemonModal({
+      open: false,
+      pokemon: null,
+    });
+  };
+
+  const handleOpenViewPokemonModal = (pokemon: ViewPokemonDto) => {
+    setOpenViewPokemonModal({
+      open: true,
+      pokemon,
+    });
+  };
 
   // get the number of columns in a row to render missing column skeletons when fetching next page
   const cols = useGridColumns();
@@ -112,20 +128,7 @@ export default function Home() {
         {/* Initial loading skeletons */}
         {isLoading && (!items || items.length === 0) && (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <Card key={i} className="overflow-hidden">
-                <CardHeader className="pb-2">
-                  <Skeleton className="h-6 w-24" />
-                </CardHeader>
-                <CardContent>
-                  <Skeleton className="mb-2 h-5 w-40" />
-                  <Skeleton className="h-28 w-full" />
-                </CardContent>
-                <CardFooter>
-                  <Skeleton className="h-9 w-24" />
-                </CardFooter>
-              </Card>
-            ))}
+            <PokemonSkeleton />
           </div>
         )}
         {!isLoading && items.length > 0 && (
@@ -133,59 +136,16 @@ export default function Home() {
             {/* Grid of Pokémon cards */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {items.map(p => (
-                <Card key={p.id} className="group transition">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="flex items-center justify-between text-base">
-                      <span className="text-muted-foreground">{formatDexNo(p.pokedexNumber)}</span>
-                      <span className="truncate font-semibold">{p.name}</span>
-                    </CardTitle>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-1 flex-col items-center gap-2">
-                      <div className="bg-muted/30 flex h-32 w-full items-center justify-center rounded-md border">
-                        <Image
-                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.pokedexNumber}.png`}
-                          alt={p.name}
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {p.types.map(t => {
-                          return <Image key={t.id} src={t.iconUrl} alt={t.name} width={100} height={75} />;
-                        })}
-                      </div>
-                    </div>
-                  </CardContent>
-
-                  <CardFooter className="flex w-full flex-row items-center justify-between gap-2">
-                    <Button size="sm" variant="secondary">
-                      View
-                    </Button>
-                    <Button variant="ghost" size="icon">
-                      <Trash className="text-destructive size-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
+                <PokemonCard
+                  pokemon={p}
+                  key={p.id}
+                  onDeleteSuccess={refetch}
+                  onViewClicked={handleOpenViewPokemonModal}
+                />
               ))}
 
               {/* While fetching next page, fill remaining slots of the current row with skeletons */}
-              {trailingSlots > 0 &&
-                Array.from({ length: trailingSlots }).map((_, i) => (
-                  <Card key={`sk-${i}`} className="overflow-hidden">
-                    <CardHeader className="pb-2">
-                      <Skeleton className="h-6 w-24" />
-                    </CardHeader>
-                    <CardContent>
-                      <Skeleton className="mb-2 h-5 w-40" />
-                      <Skeleton className="h-28 w-full" />
-                    </CardContent>
-                    <CardFooter>
-                      <Skeleton className="h-9 w-24" />
-                    </CardFooter>
-                  </Card>
-                ))}
+              {trailingSlots > 0 && <PokemonSkeleton count={trailingSlots} />}
             </div>
 
             {/* Fetching spinner + manual fallback button */}
@@ -209,6 +169,13 @@ export default function Home() {
             {/* Sentinel: sits below the list; when it enters viewport we auto-fetch */}
             <div ref={sentinelRef} className="h-1 w-full" />
           </>
+        )}
+        {openViewPokemonModal.pokemon && (
+          <ViewPokemonModal
+            open={openViewPokemonModal.open}
+            pokemon={openViewPokemonModal.pokemon}
+            onClose={handleCloseViewPokemonModal}
+          />
         )}
       </div>
     </div>

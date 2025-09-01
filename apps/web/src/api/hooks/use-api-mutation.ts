@@ -9,7 +9,7 @@ export function useApiMutation<TInput, TOutput>(
   options?: Omit<UseMutationOptions<TOutput, ApiError, TInput>, 'mutationFn'>,
 ) {
   return useMutation<TOutput, ApiError, TInput>({
-    mutationFn: variables => apiFetch<TOutput, TInput>(path, { method, body: variables }),
+    mutationFn: variables => apiFetch<TOutput, TInput>(path, { method, body: variables ?? undefined }),
     ...options,
   });
 }

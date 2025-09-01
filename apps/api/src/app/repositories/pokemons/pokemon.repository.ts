@@ -4,7 +4,7 @@ import { BaseRepository } from '@coreloops-repos/base.repository';
 import { DrizzleProvider, pokemonEntity } from '@coreloops/data-access-layer';
 import { CursorQueryDto } from '@coreloops/shared-types';
 import { Injectable } from '@nestjs/common';
-import { asc, gt } from 'drizzle-orm';
+import { asc, eq, gt } from 'drizzle-orm';
 import { ClsService } from 'nestjs-cls';
 
 @Injectable()
@@ -47,6 +47,29 @@ export class PokemonRepository extends BaseRepository {
     return {
       hasNextPage,
       entities,
+    };
+  }
+
+  async findPokemonMoves(id: string): Promise<PokemonSelectEntity | undefined> {
+    const where = eq(this.table.id, id);
+    return await this.drizzle.db.query.pokemonEntity.findFirst({
+      where,
+      with: {
+        moves: {
+          with: {
+            move: true,
+          },
+        },
+      },
+    });
+  }
+
+  async deletePokemon(id: string): Promise<{ message: string; status: string }> {
+    await this.drizzle.db.delete(this.table).where(eq(this.table.id, id));
+
+    return {
+      message: `Pokemon ${id} deleted successfully`,
+      status: 'success',
     };
   }
 }

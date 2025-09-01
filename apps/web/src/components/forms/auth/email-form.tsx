@@ -30,6 +30,7 @@ export default function EmailForm() {
 
   const onSuccess = (data: ViewSignInDto) => {
     setStorageItem(StorageKeys.AccessToken, data.accessToken);
+    setStorageItem(StorageKeys.User, JSON.stringify(data.user));
     router.replace(RouteEnum.Home);
   };
 
